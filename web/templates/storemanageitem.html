@@ -1,0 +1,99 @@
+{% include 'storeheader.html' %}
+
+<div class="divmain">
+    <form action="" method="post" enctype="multipart/form-data">
+    <h1 class="text-white">Manage Items</h1>
+    <div class="box">
+        <table class="table" style="width: 600px;color: aliceblue;">
+            <tr>
+            <select name="cat" id="" class="form-control">
+                <option value="{% if data['upstation'] %}{{data['upstation'][0]['categoory_id']}}{% endif %}">{% if data['upstation'] %}{{data['upstation'][0]['category_name']}} {% else %}----select category----- {% endif %}</option>
+                {% for i in data['cate'] %}
+                <option value="{{i['category_id']}}">{{i['category_name']}}</option>
+                {% endfor %}
+
+            </select>    
+            </tr>
+            <tr>
+                <th>Item Name</th>
+                <td><input type="text" name="iname" class="form-control" required value="{% if data['upstation'] %}{{data['upstation'][0]['item_name']}}{% endif %}"></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td><input type="text" name="desc" class="form-control" required value="{% if data['upstation'] %}{{data['upstation'][0]['description']}} {% endif %}"></td>
+            </tr>
+            <tr>
+                <th>Stock</th>
+                <td><input type="number" name="stock" class="form-control" class="form-control" required value="{% if data['upstation'] %}{{data['upstation'][0]['stock']}} {% endif %}"></td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td><input type="number" name="price" class="form-control" class="form-control" required value="{% if data['upstation'] %}{{data['upstation'][0]['price']}} {% endif %}"></td>
+            </tr>
+            {% if data['upstation'] %}
+
+            {% else %}
+            <tr>
+                <th>Image</th>
+                <td><input type="file" name="img" class="form-control"  required value="{% if data['upstation'] %}{{data['upstation'][0]['image']}} {% endif %}"></td>
+            </tr>
+           
+           
+
+            {% endif %}
+            <tr>
+                <td align="center" colspan="2"><input type="submit" {% if data['upstation'] %} name="edit" value="Update"  {% else %} name="add" value="Register" {% endif %}  class="btn btn-success"></td>
+            </tr>
+        </table>
+    </div>
+</form>
+</div>
+
+<center>
+    <h1 style="margin: 50px;">View items</h1>
+    <table class="table" style="width: 800px;">
+        <tr>
+            <th>#</th>
+            <th>Image</th>
+            <th>Category</th>
+            <th>Item Name</th>
+            <th>Description</th>
+            <th>Stock</th>
+            <th>Price</th>
+        </tr>
+        {% for i in data['viewstations'] %}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td><img src="/{{i['image']}}" alt="" width="150px" height="150px"></td>
+            <td>{{i['category_name']}}</td>
+            <td>{{i['item_name']}}</td>
+            <td>{{i['description']}}</td>
+            <td>{{i['stock']}}</td>
+            <td>{{i['price']}}</td>
+            <td><a href="?action=update&id={{i['item_id']}}" class="btn btn-warning">Update</a></td>
+            <td><a href="?action=delete&id={{i['item_id']}}" class="btn btn-danger">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+
+
+{% include 'footer.html' %}
+
+<style>
+    .box{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 30px;
+        background: rgb(36, 35, 35, .5);
+        border-radius: 5px;
+        
+        padding: .8rem .6rem;
+
+    }
+    tr,td,th{
+        border: none !important;
+    }
+</style>

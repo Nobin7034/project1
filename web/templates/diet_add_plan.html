@@ -1,0 +1,43 @@
+{% include 'dietheader.html' %}
+
+<center>
+	<div class="divmain" style="height:400px">
+
+		<form method="post">
+			
+			
+			<table>
+				<h1 class="text-white">Add Plan </h1>
+				<tr>
+					<th> Plan</th>
+					<td><textarea class="form-control" required name="plan"></textarea></td>
+				</tr>
+				<tr>
+					<td align="center" colspan=2><input type="submit" name="submit" value="ADD" class="btn btn-primary"></td>
+				</tr>
+			</table>
+		</div>
+			<center>
+				<h1>View Plans</h1>
+				<table class="table" style="width: 700px">
+					<tr>
+						<th>Slno.</th>
+						<th>Plan </th>
+						
+					</tr>
+					{%for r in data['view'] %}
+					<tr>
+				<td>{{loop.index}}</td>
+				<td>{{r['plan']}}</td>
+				
+				<td><a href="?action=delete&id={{r['diet_plan_id']}}" class="btn btn-primary">Delete</a></td>
+				
+			</tr>
+			{%endfor%}
+			
+		</table>
+	</center>
+	</form>
+</center>
+
+{%include 'footer.html' %}

@@ -1,0 +1,33 @@
+{% include 'adminheader.html' %}
+<div class="divmain" style="height: 300px;"></div>
+<form>
+
+		<center>
+		<h1>View Compliants</h1>
+		<table class="table" style="width: 700px">
+			<th>slno.</th>
+				<th>User Name</th>
+				<th>Complaint</th>
+				<th>Reply</th>
+				<th>Date</th>
+				
+			</tr>
+			{% for r in data['view'] %}
+			<tr>
+				<td>{{loop.index}}</td>
+				<td>{{r['first_name']}} {{r['last_name']}}</td>
+				<td>{{r['complaint']}}</td>
+				<td>{{r['reply']}}</td>
+				<td>{{r['date_time']}}</td>
+				{% if r['reply']=='pending' %}
+				<td><a href="admin_send_reply?cid={{r['complaint_id']}}">Send Reply</a></td>
+				{% endif %}
+</tr>
+			{%endfor%}
+			
+			
+		</table>
+	</center>
+	</form>
+
+	{% include 'footer.html' %}

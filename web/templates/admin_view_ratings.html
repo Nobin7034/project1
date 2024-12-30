@@ -1,0 +1,32 @@
+{% include 'adminheader.html' %}
+<form>
+
+		<center>
+		<h1>View Items</h1>
+		<table class="table" style="width: 700px">
+			<th>slno.</th>
+				<th>User Name</th>
+				<th>Rate</th>
+				<th>Review</th>
+				<th>Date</th>
+				
+				
+			</tr>
+			{% for r in data['view'] %}
+			<tr>
+				<td>{{loop.index}}</td>
+				<td>{{r['first_name']}} {{r['last_name']}}</td>
+				<td>{{r['rate']}}</td>
+				<td>{{r['review']}}</td>
+				<td>{{r['date_time']}}</td>
+				
+</tr>
+			{%endfor%}
+			
+			
+		</table>
+	</center>
+	</form>
+	
+
+	{% include 'footer.html' %}

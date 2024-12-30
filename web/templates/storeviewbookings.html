@@ -1,0 +1,38 @@
+{% include 'storeheader.html' %}
+
+<div class="divmain" style="height: 300px;"></div>
+    <center>
+        <h1 style="margin: 50px;">View Bookings</h1>
+        <table class="table" style="width: 800px;">
+            <tr>
+                <th>#</th>
+                <th>Image</th>
+                <th>Username</th>
+                <th>Item</th>
+                <th>Amount</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Status</th>
+        </tr>
+        {% for i in data['view'] %}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td><img src="/{{i['image']}}" alt="" width="150px" height="150px"></td>
+            <td>{{i['first_name']}}{{i['last_name']}}</td>
+            <td>{{i['item_name']}}</td>
+            <td>{{i['amount']}}</td>
+            <td>{{i['quantity']}}</td>
+            <td>{{i['total']}}</td>
+            <td>{{i['status']}}</td>
+            {% if i['status']=='paid' %}
+            <td><a href="?action=delivered&id={{i['order_master_id']}}" class="btn btn-warning">Delivered</a></td>
+            {% elif i['status']!='paid' %}
+            <td><a href="storeviewpayments?id={{i['order_master_id']}}" class="btn btn-warning">View Payment</a></td>
+            <td><a href="storeviewratings?id={{i['order_master_id']}}" class="btn btn-warning">View Ratings</a></td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+
+{% include 'footer.html' %}

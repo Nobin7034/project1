@@ -1,0 +1,41 @@
+{% include 'dietheader.html' %}
+<div class="divmain" style="height: 300px;"></div>
+<form>
+
+		<center>
+		<h1>View Requests</h1>
+		<table class="table" style="width: 700px">
+			<th>slno.</th>
+				<th>User Name</th>
+				<th>Date</th>
+				<th>Status</th>
+		
+				
+			</tr>
+			{% for r in data['view'] %}
+			<tr>
+				<td>{{loop.index}}</td>
+				<td>{{r['first_name']}} {{r['last_name']}}</td>
+				
+				<td>{{r['date']}}</td>
+				{%if r['status']=="pending"%}
+				<td><a href="?action=accept&id={{r['request_id']}}" class="btn btn-success"> Accept</a></td>
+				<td><a href="?action=reject&id={{r['request_id']}}" class="btn btn-danger"> Reject</a></td>
+				{%else%}
+				<td>{{r['status']}}</td>
+				<td><a href="diet_view_details?id={{r['request_id']}}" class="btn btn-warning"> Details</a></td>
+				<td><a href="diet_add_plan?id={{r['request_id']}}" class="btn btn-info"> Plans</a></td>
+				
+				{%endif%}
+				
+				
+				
+</tr>
+			{%endfor%}
+			
+			
+		</table>
+	</center>
+	</form>
+
+	{% include 'footer.html' %}

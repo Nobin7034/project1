@@ -1,0 +1,37 @@
+{% include 'dietheader.html' %}
+<div class="divmain" style="height: 300px;"></div>
+<form>
+
+		<center>
+		<h1>View Details</h1>
+		<table class="table" style="width: 700px">
+			<th>slno.</th>
+				<th>Age</th>
+				<th>Weight</th>
+				<th>Height</th>
+		
+				
+			</tr>
+			{% for r in data['view'] %}
+			<tr>
+				<td>{{loop.index}}</td>
+				<td>{{r['age']}}</td>
+				
+				<td>{{r['weight']}}</td>
+
+				<td>{{r['height']}}</td>
+				
+				
+				
+				
+				
+				
+</tr>
+			{%endfor%}
+			
+			
+		</table>
+	</center>
+	</form>
+
+	{% include 'footer.html' %}

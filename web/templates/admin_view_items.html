@@ -1,0 +1,36 @@
+{% include 'adminheader.html' %}
+<div class="divmain" style="height: 300px;"></div>
+<form>
+
+		<center>
+		<h1>View Items</h1>
+		<table class="table" style="width: 700px">
+			<th>slno.</th>
+				<th>Store Name</th>
+				<th>Category</th>
+				<th>Item Name</th>
+				<th>Description</th>
+				<th>Image</th>
+				<th>Stock</th>
+				<th>Price</th>
+				
+			</tr>
+			{% for r in data['view'] %}
+			<tr>
+				<td>{{loop.index}}</td>
+				<td>{{r['store_name']}}</td>
+				<td>{{r['category_name']}}</td>
+				<td>{{r['item_name']}}</td>
+				<td>{{r['description']}}</td>
+				<td><img src="/{{r['itimage']}}" alt="" width="100px" height="100px"></td>
+				<td>{{r['stock']}}</td>
+				<td>{{r['price']}}</td>
+</tr>
+			{%endfor%}
+			
+			
+		</table>
+	</center>
+	</form>
+
+	{% include 'footer.html' %}

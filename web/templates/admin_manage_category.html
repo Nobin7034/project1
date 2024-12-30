@@ -1,0 +1,54 @@
+{% include 'adminheader.html' %}
+
+<center>
+	<div class="divmain">
+
+		<form method="post">
+			{% if data['up'] %}
+			<table>
+				<h1 class="text-white">Manage Category</h1>
+				<tr>
+					<th>Category Name</th>
+					<td><input type="text" name="cat" value="{{data['up'][0]['category_name']}}" class="form-control"></td>
+				</tr>
+				<tr>
+					<td align="center" colspan=2><input type="submit" name="update" value="UPDATE" class="btn btn-primary" ></td>
+				</tr>
+			</table>
+			{%else%}
+			<table>
+				<h1 class="text-white">Manage Category </h1>
+				<tr>
+					<th>Category Name</th>
+					<td><input type="text" name="cat"  class="form-control" required=""></td>
+				</tr>
+				<tr>
+					<td align="center" colspan=2><input type="submit" name="submit" value="ADD" class="btn btn-primary"></td>
+				</tr>
+			</table>
+		</div>
+			<center>
+				<h1>View Categories</h1>
+				<table class="table" style="width: 700px">
+					<tr>
+						<th>Slno.</th>
+						<th>Category Name</th>
+						
+					</tr>
+					{%for r in data['view'] %}
+					<tr>
+				<td>{{loop.index}}</td>
+				<td>{{r['category_name']}}</td>
+				
+				<td><a href="?action=delete&cid={{r['category_id']}}" class="btn btn-primary">Delete</a></td>
+				<td><a href="?action=update&cid={{r['category_id']}}" class="btn btn-primary">Update</a></td>
+			</tr>
+			{%endfor%}
+			{%endif%}
+			
+		</table>
+	</center>
+	</form>
+</center>
+
+{%include 'footer.html' %}

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="#FAF7F2"
+    android:layout_height="match_parent"
+    tools:context=".Payment">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:text="Fill The Card details" />
+
+
+    <TextView
+        android:id="@+id/textView4"
+        android:textSize="15dp"
+        android:textColor="#FB0000"
+        android:padding="2dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="First Name" />
+
+    <EditText
+        android:id="@+id/firstname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="20dp"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/inputbtn"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="First Name" />
+
+    <TextView
+        android:id="@+id/textview5"
+        android:textSize="15dp"
+        android:textColor="#FF0000"
+        android:padding="2dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Last Name" />
+
+    <EditText
+        android:id="@+id/lastname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginTop="20dp"
+        android:padding="20dp"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:background="@drawable/inputbtn"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Last Name" />
+
+    <TextView
+        android:id="@+id/textview"
+        android:textSize="15dp"
+        android:textColor="#FF0000"
+        android:padding="2dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Card Number" />
+
+
+    <EditText
+        android:id="@+id/cardno"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/inputbtn"
+        android:ems="10"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:inputType="number"
+        android:hint="Card Number" />
+
+
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginTop="20dp"
+
+        android:padding="2dp">
+
+
+        <EditText
+            android:id="@+id/cvv"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:ems="10"
+            android:padding="2dp"
+            android:layout_margin="5dp"
+
+            android:textColor="@color/black"
+            android:textColorHint="#FF0000"
+            android:background="@drawable/inputbtn"
+            android:inputType="number"
+            android:hint="Cvv" />
+
+
+        <EditText
+            android:id="@+id/exp"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:ems="10"
+            android:padding="2dp"
+            android:layout_margin="5dp"
+            android:textColor="@color/black"
+            android:textColorHint="#FF0000"
+            android:background="@drawable/inputbtn"
+            android:inputType="textPersonName"
+            android:hint="exp" />
+
+    </TableRow>
+    <TextView
+        android:id="@+id/amount"
+        android:textSize="25dp"
+        android:textColor="#000000"
+        android:padding="2dp"
+        android:layout_marginTop="20dp"
+
+        android:drawableLeft="@drawable/ic_baseline_currency_rupee_24"
+        android:layout_width="match_parent"
+        android:drawablePadding="20dp"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button2"
+        android:background="@drawable/custbtn"
+        android:width="200dp"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="20dp"
+
+        android:layout_height="wrap_content"
+        android:text="Pay Securely" />
+
+
+
+</LinearLayout>

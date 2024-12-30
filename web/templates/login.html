@@ -1,0 +1,39 @@
+{% include 'publicheader.html' %}
+
+<center>
+	<div class="divmain">
+
+		<h1>Login</h1>
+		<form method="post">
+			<table class="table" style="width: 500px;">
+				<tr>
+					<th>Username</th>
+					<td><input type="text" name="uname" class="form-control" required=""></td>
+				</tr>
+				<tr>
+					<th>Password</th>
+					<td><input type="password" name="pasd" class="form-control" required=""></td>
+				</tr>
+				<tr>
+					<td align="center" colspan="2"><input type="submit" name="submit" value="LOGIN" class="btn btn-primary"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	</center>
+{% include 'footer.html' %}
+
+
+<style>
+	.divmain{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+		flex-direction: column;
+		background: url("/static/assets/img/about-2.jpg");
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+</style>

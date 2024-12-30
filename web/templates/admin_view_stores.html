@@ -1,0 +1,41 @@
+{% include 'adminheader.html' %}
+<div class="divmain" style="height: 300px;"></div>
+<form>
+
+		<center>
+		<h1>View Stores</h1>
+		<table class="table" style="width: 700px">
+			<th>slno.</th>
+				<th>Store Name</th>
+				<th>Image</th>
+				<th>Building Name</th>
+				<th>Place</th>
+				<th>Pincode</th>
+				<th>Phone</th>
+				<th>Email</th>
+				
+			</tr>
+			{% for r in data['view'] %}
+			<tr>
+				<td>{{loop.index}}</td>
+				<td>{{r['store_name']}}</td>
+				<td><img src="/{{r['image']}}" alt="" height="150px" width="150px"></td>
+				<td>{{r['building_name']}}</td>
+				<td>{{r['place']}}</td>
+				<td>{{r['pincode']}}</td>
+				<td>{{r['phone']}}</td>
+				<td>{{r['email']}}</td>
+
+				{% if r['status']=='active' %}
+				<td><a href="?action=accept&cid={{r['store_id']}}" class="btn btn-success">Accept</a></td>
+				<td><a href="?action=reject&cid={{r['store_id']}}" class="btn btn-danger">Reject</a></td>
+				{% endif %}
+</tr>	
+			{%endfor%}
+			
+			
+		</table>
+	</center>
+	</form>
+
+	{% include 'footer.html' %}

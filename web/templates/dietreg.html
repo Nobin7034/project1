@@ -1,0 +1,45 @@
+{% include 'publicheader.html' %}
+<div class="divmain">
+    <center>
+    <form action="" method="post" enctype="multipart/form-data">
+
+    <h2 class="text-black">Dietteam Registration</h2>
+    <div class="box">
+        <table class="table" style="width: 600px;color: rgb(0, 0, 0);">
+            <tr>
+                <th>Diet_team Name</th>
+                <td><input type="text" name="name" class="form-control" required ></td>
+            </tr>
+            <tr>
+                <th>Place</th>
+                <td><input type="text" name="place" class="form-control" required ></td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td><input type="text" name="phone" class="form-control" pattern="[0-9]{10}" title="Phone Number Must Contain 10 Numbers" required ></td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td><input type="email" name="email" class="form-control"  required ></td>
+            </tr>
+
+            
+            <tr>
+                <th>Username</th>
+                <td><input type="text" name="uname" class="form-control" class="form-control" required></td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td><input type="password" name="passw" class="form-control" class="form-control" required></td>
+            </tr>
+
+    
+            <tr>
+                <td align="center" colspan="2"><input type="submit" name="add" class="btn btn-success"></td>
+            </tr>
+        </table>
+    </div>
+</form>
+</center>
+</div>
+{% include 'footer.html' %}
